@@ -7,7 +7,7 @@ const yearMap = {
   1: '19',
   2: '18',
   3: '17',
-  4: '16'
+  4: '15'
 };
 
 const verifyScopes = (requested: scope[], permitted: scope[]) => {
