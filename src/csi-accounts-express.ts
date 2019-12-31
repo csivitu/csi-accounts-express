@@ -21,7 +21,7 @@ const verifyScopes = (requested: scope[], permitted: scope[]) => {
 }
 
 const verifyYear = (regNo: string, permitted: year[]) => {
-  const userNum = regNo.slice(0,3);
+  const userNum = regNo.slice(0,2);
 
   for (const year of permitted) {
     if (userNum === yearMap[year]) {
@@ -72,3 +72,5 @@ export const authorize = (options: Options) => {
     }
   }
 }
+
+export default authorize;

@@ -17,3 +17,9 @@ export interface User {
   gender: string;
   scope: scope[];
 }
+
+declare module 'express' {
+  interface Request {
+    user: User;
+  }
+}
