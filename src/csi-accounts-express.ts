@@ -31,7 +31,7 @@ const verifyYear = (regNo: string, permitted: year[]) => {
   return false;
 }
 
-export const authorize = (options: Options) => {
+const authorize = (options: Options) => {
   return (req: Request, res: Response, next: NextFunction) => {
     const token = (req.headers['x-access-token'] || req.headers.authorization) as string;
 
