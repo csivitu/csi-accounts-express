@@ -11,9 +11,9 @@ const yearMap = {
   4: '16'
 };
 
-const verifyScopes = (requested: scope[], permitted: scope[]) => {
-  for (const scope of requested) {
-    if (permitted.indexOf(scope) == -1) {
+const verifyScopes = (userScopes: scope[], permitted: scope[]) => {
+  for (const scope of permitted) {
+    if (userScopes.indexOf(scope) == -1) {
       return false;
     }
   }
