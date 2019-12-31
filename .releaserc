@@ -8,5 +8,6 @@
         {"path": "dist", "label": "Library"},
       ]
     }],
+    "@semantic-release/npm"
   ]
 }
