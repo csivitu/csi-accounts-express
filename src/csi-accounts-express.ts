@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
 import constants from "./constants";
+import { scope, year, Options, User } from "./types";
 
 const yearMap = {
   1: '19',
@@ -44,7 +45,6 @@ export const authorize = (options: Options) => {
 
     try {
       req.user = jwt.verify(token, options.secret) as User;
-
       if (options.scope !== undefined) {
         if (!verifyScopes(req.user.scope, options.scope)) {
           return res.status(403).json({
