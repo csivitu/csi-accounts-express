@@ -2,7 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
 import constants from "./constants";
-import { scope, year, Options, User } from "./types";
+import { year, Options } from "./types";
+import { scope, User } from "csi-accounts-express";
 
 const yearMap = {
   1: '19',
