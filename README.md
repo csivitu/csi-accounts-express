@@ -8,6 +8,13 @@ $ npm install csi-accounts-express
 $ npm install @types/csi-accounts-express
 ```
 
+### Note:
+The packages above are a part of the [npm.csivit.com](https://npm.csivit.com) registry. To install them, you need to configure it as your default registry:
+```
+$ npm config set registry https://npm.csivit.com
+```
+Consider using [npmrc](https://www.npmjs.com/package/npmrc) to manage multiple npm configurations.
+
 # API
 ```javascript
 const authorize = require('csi-accounts-express');
