@@ -30,7 +30,7 @@ If the token was invalid then the middleware may return a `403`/`400`/`401` stat
 ### options
 options in an object which has the following options:
 * secret (required)
-  The secret used to sign/verify the JWT token. In the Gitlab CI/CD, this is availabe in the `JWT_SECRET` variable.
+  The secret used to sign/verify the JWT token. In the Gitlab CI/CD, this is availabe in the `JWT_SECRET` environment variable.
 * scope
   An array of scopes (strings) that the user must have to authenticate with the middleware.
   Currently supported scope values are: 'csi' (for csi members), and 'user' for all users.
