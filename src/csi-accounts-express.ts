@@ -1,57 +1,61 @@
-import { Request, Response, NextFunction } from "express";
-import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from 'express'
+import jwt from 'jsonwebtoken'
 
-import constants from "./constants";
-import { year, Options } from "./types";
-import { scope, User } from "csi-accounts-express";
+import constants from './constants'
+import { year, Options } from './types'
+import { scope, User } from 'csi-accounts-express'
 
 const yearMap = {
   1: '19',
   2: '18',
   3: '17',
   4: '16'
-};
+}
 
 const verifyScopes = (userScopes: scope[], permitted: scope[]) => {
   for (const scope of permitted) {
     if (userScopes.indexOf(scope) == -1) {
-      return false;
+      return false
     }
   }
-  return true;
+  return true
 }
 
 const verifyYear = (regNo: string, permitted: year[]) => {
-  const userNum = regNo.slice(0,2);
+  const userNum = regNo.slice(0, 2)
 
   for (const year of permitted) {
     if (userNum === yearMap[year]) {
-      return true;
+      return true
     }
   }
-  return false;
+  return false
 }
 
 const authorize = (options: Options) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    const token = (req.headers['x-access-token'] || req.headers.authorization) as string;
+    let token = (req.headers['x-access-token'] || req.headers.authorization) as string
 
-    if (!token) {
+    if (options.token) {
+      token = options.token(req, res, next) as string
+    }
+
+    if (!token || typeof token != 'string') {
       res.status(401).json({
         success: false,
-        message: constants.invalidToken,
-      });
-      return;
+        message: constants.invalidToken
+      })
+      return
     }
 
     try {
-      req.user = jwt.verify(token, options.secret) as User;
+      req.user = jwt.verify(token, options.secret) as User
       if (options.scope !== undefined) {
         if (!verifyScopes(req.user.scope, options.scope)) {
           return res.status(403).json({
             success: false,
-            message: constants.insufficientPrivileges,
-          });  
+            message: constants.insufficientPrivileges
+          })
         }
       }
 
@@ -59,19 +63,19 @@ const authorize = (options: Options) => {
         if (!verifyYear(req.user.regNo, options.years)) {
           return res.status(403).json({
             success: false,
-            message: constants.insufficientPrivileges,
-          });
+            message: constants.insufficientPrivileges
+          })
         }
       }
 
-      next();
+      next()
     } catch (err) {
       return res.status(400).json({
         success: false,
-        message: constants.invalidToken,
-      });
+        message: constants.invalidToken
+      })
     }
   }
 }
 
-export default authorize;
+export default authorize
