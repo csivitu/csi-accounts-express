@@ -51,13 +51,13 @@ interface User {
 
 # Example Usage:
 
-To allow CSI members who are 1st and 2nd years:
+To allow CSI members who are 1st (2020) and 2nd (2019) years:
 
 ```javascript
 app.use(authorize({
     secret: process.env.JWT_SECRET,
     scope: ['csi'],
-    years: ['1', '2'],
+    years: ['20', '19'],
 }));
 ```
 
