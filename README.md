@@ -35,7 +35,7 @@ options in an object which has the following options:
   An express middleware which is supposed to return the token string. This is the string that will be verified by the library.
 
 ### req.user
-If the token is authenticated sucesfully, and the user staisfies all other contraints, then `req.user` contains the user object of the authenticated user. This just contains the payload from the given jwt token:
+If the token is authenticated successfully, and the user staisfies all other contraints, then `req.user` contains the user object of the authenticated user. This just contains the payload from the given jwt token:
 ```typescript
 interface User {
     name: string;
