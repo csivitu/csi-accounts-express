@@ -7,7 +7,9 @@
   "module": "dist/csi-accounts-express.es5.js",
   "typings": "dist/types/csi-accounts-express.d.ts",
   "files": [
-    "dist"
+    "dist",
+	"src",
+	"tools"
   ],
   "author": " <>",
   "repository": {
@@ -32,7 +34,8 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+	"postinstall": "npm run build"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -117,13 +120,13 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^8.0.1",
-    "typedoc": "^0.12.0",
-    "typescript": "^3.0.3"
+    "typedoc": "^0.12.0"
   },
   "dependencies": {
     "@types/csi-accounts-express": "github:csivitu/csi-accounts-express-types",
     "@types/express": "^4.17.2",
     "@types/jsonwebtoken": "^8.3.5",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "typescript": "^3.0.3"
   }
 }
