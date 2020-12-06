@@ -5,13 +5,6 @@ import constants from './constants'
 import { year, Options } from './types'
 import { scope, User } from 'csi-accounts-express'
 
-const yearMap = {
-  1: '19',
-  2: '18',
-  3: '17',
-  4: '16'
-}
-
 const verifyScopes = (userScopes: scope[], permitted: scope[]) => {
   for (const scope of permitted) {
     if (userScopes.indexOf(scope) == -1) {
@@ -25,7 +18,7 @@ const verifyYear = (regNo: string, permitted: year[]) => {
   const userNum = regNo.slice(0, 2)
 
   for (const year of permitted) {
-    if (userNum === yearMap[year]) {
+    if (userNum === year) {
       return true
     }
   }
