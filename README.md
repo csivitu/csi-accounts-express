@@ -1,19 +1,13 @@
 # csi-accounts-express
 
-An express middleware for verifying user tokens from [accounts.csivit.com](https://accounts.csivit.com)
+An express middleware for verifying user tokens from [accounts.csivit.com](https://accounts.csivit.com).
 
 # Installation
 ```
-$ npm install csi-accounts-express
-$ npm install @types/csi-accounts-express
+$ npm install csivitu/csi-accounts-express
 ```
 
-### Note:
-The packages above are a part of the [npm.csivit.com](https://npm.csivit.com) registry. To install them, you need to configure it as your default registry:
-```
-$ npm config set registry https://npm.csivit.com
-```
-Consider using [npmrc](https://www.npmjs.com/package/npmrc) to manage multiple npm configurations.
+> Note: This will use the master branch from GitHub, since the package hasn't been published on npm.
 
 # API
 ```javascript
