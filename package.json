@@ -1,6 +1,6 @@
 {
   "name": "csi-accounts-express",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "",
   "keywords": [],
   "main": "dist/csi-accounts-express.umd.js",
@@ -17,9 +17,6 @@
   "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.csivit.com"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
